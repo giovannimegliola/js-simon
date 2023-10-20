@@ -22,30 +22,30 @@ function controlRandomNumber(array, number){
 
 // preleva i numeri inseriti dall'utente tramite prompt 
 function getUserNumber(){
-    let user_number = [];
+    let userNumber = [];
 
-    while(user_number.length < 5){
+    while(userNumber.length < 5){
         let number = parseInt(prompt('Inserisci i numeri che hai memorizzato, singolarmente:'));
 
-        if(!user_number.includes(number)){
-            user_number.push(number);
+        if(!userNumber.includes(number)){
+            userNumber.push(number);
         }
     }
-    return user_number;
+    return userNumber;
 }
 
-let random_number = []; // array numeri randomici
+let randomNumber = []; // array numeri randomici
 
 
 for (let i = 0; i < 5; i++){
     let number = getRndInteger (1, 100);
 
-    if(controlRandomNumber(random_number,number)){
-        random_number.push(number);
+    if(controlRandomNumber(randomNumber,number)){
+        randomNumber.push(number);
     }
 }
 
-document.getElementById("randomNum").innerHTML = random_number;
+document.getElementById("randomNum").innerHTML = randomNumber;
 
 
 // funzione timer durata di visualizzazione dei 5 numeri
@@ -58,6 +58,32 @@ setTimeout(function(){
 },3000);  //settato a 3 secondi per testare il funzionamento rapidamente
 
 
+
+// prompt per inserire i numeri che l'utente ricorda
+
+setTimeout(function(){
+
+  let userNumber = getUserNumber();
+  let guessedNum = []; // numeri indovinati
+  let score = 0; 
+  
+  for(let i = 0; i < userNumber.length; i++){
+
+      if(randomNumber.includes(userNumber[i])){
+          guessedNum.push(userNumber[i]);
+          score++;
+      }
+     
+  }
+   
+  if (score !== 0){
+      document.getElementById("results").innerHTML = `Hai indovinato ${score} numeri. I numeri corretti sono ${guessedNum}`;
+  }
+  else if (score === 0){
+      document.getElementById("results").innerHTML = `Non hai indovinato nessun numero, riprova.`;
+  }
+  
+},4000); 
 
 
 
