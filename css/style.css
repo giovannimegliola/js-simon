@@ -1,0 +1,29 @@
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header{
+  text-align: center;
+}
+
+footer{
+  text-align: center;
+}
+
+main{
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+}
+
+div{
+  font-size: 3em;
+  color: red;
+}
+
+h1 {
+  margin: 20px;
+}
