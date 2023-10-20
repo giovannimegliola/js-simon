@@ -48,4 +48,16 @@ for (let i = 0; i < 5; i++){
 document.getElementById("randomNum").innerHTML = random_number;
 
 
+// funzione timer durata di visualizzazione dei 5 numeri
+
+setTimeout(function(){
+
+  document.getElementById("randomNum").style.display = "none"; 
+  document.getElementById("results").innerHTML = 'Tempo scaduto! Inserisci i numeri che ricordi:';
+
+},3000);  //settato a 3 secondi per testare il funzionamento rapidamente
+
+
+
+
 
